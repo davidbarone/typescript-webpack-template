@@ -29,7 +29,7 @@ Modern web development is complicated. There are a million ways to skin a cat, a
 
 ### webpack.config.js
 
-The following Webpack configuration was used:
+Default Webpack configuration file:
 
 ``` js
 const path = require("path");
@@ -95,8 +95,9 @@ Notes:
 - Includes configuration for HtmlWebpackPlugin
 - CSS loader, with CSS Modules (local CSS)
 
-### folder setup
+### Folder Setup
 
+```
 +--\src
 |  +--\assets (for static files)
 |  +--\components (for business components that are reused in multiple components)
@@ -109,6 +110,7 @@ Notes:
 +--\tests
 |  +--component_a.test.js
 |  +--component_b.test.js
+```
 
 ### index.ts
 
