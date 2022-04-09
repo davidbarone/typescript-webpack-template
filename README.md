@@ -48,6 +48,19 @@ module.exports = {
         use: "ts-loader",
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: "style-loader" },
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              importLoaders: 1,
+            },
+          },
+        ],
+      },
     ],
   },
   resolve: {
@@ -80,6 +93,7 @@ Notes:
 - Configuration for development web server included ('devServer')
 - Includes rules for TypeScript
 - Includes configuration for HtmlWebpackPlugin
+- CSS loader, with CSS Modules (local CSS)
 
 ### folder setup
 
@@ -175,11 +189,32 @@ Paradigms, Coding Standards:
 
 CSS is added to the Webpack configuration as follows:
 
-`npm install --save-dev css-loader`
+`npm install --save-dev css-loader style-loader`
 
-webpack.config.js
+webpack.config.js, module section:
 ``` js
-
+ module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: "style-loader" },
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              importLoaders: 1,
+            },
+          },
+        ],
+      },
+    ],
+  },
 ```
 
 ### Reset Style
@@ -190,6 +225,10 @@ I use normalize.css as the reset style as follows:
 Then, add the following to the entry `index.ts`:
 
 `import 'normalize.css';`
+
+### CSS Modules
+
+CSS Modules are 
 
 ## Testing
 
