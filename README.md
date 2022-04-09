@@ -9,27 +9,65 @@ Modern web development is complicated. There are a million ways to skin a cat, a
 - Use standard modern node build chain, but keep to core well-used components
   - TypeScript (for typed JavaScript)
   - Webpack (for bundling) - https://webpack.js.org/
+  - Babel for Transpiling - https://babeljs.io/
+  - React used as default component library - https://reactjs.org/
+    - Manual setup to keep in full control
   - Jest (for testing) - https://jestjs.io/
-- Application should have the following features
-  - Component-based abstraction (e.g. React-like)
+- Modern development features
+  - Full typeing (TypeScript)
   - Hot Module Loading (HML)
+  - Linting
+  - Debugging
 
 ## Tooling
-
 - VSCode
   - Extension: ESLint Extension (Microsoft)
   - Extension: Markdown All in One (Yu Zhang)
   - Extension: Prettier - Code Formatter (Prettier)
-
+- React Dev Tools: https://reactjs.org/link/react-devtools
+  
 ## Setup
-
 - Initialising the project: `npm init`
-- Installing npm packages: `npm install typescript webpack webpack-cli webpack-dev-server ts-loader html-webpack-plugin --save-dev`
+
+### TypeScript
+- Installing TypeScript: `npm install typescript --save-dev`
+- TypeScript Loader (if not using Babel 7.0): `npm install ts-loader --save-dev`
 - Initialising the TypeScript config file: `npx tsc --init`
 
-### webpack.config.js
+### WebPack Packages
+- Installing npm packages: `npm install webpack webpack-cli webpack-dev-server --save-dev`
+- Babel Loader: `npm install babel-loader --save-dev`
+- HTML Webpack Plugin: `npm install html-webpack-plugin --save-dev`
 
-Default Webpack configuration file:
+### Babel Dependencies
+- Babel CLI (to test babel transpilations): `npm install @babel/cli --save-dev`
+- Presets: `npm install @babel/core @babel/preset-react @babel/preset-env @babel/preset-typescript --save-dev`
+
+### React Packages
+- Runtime packages: `npm install react react-dom`
+- Development packages (for Webpack & Babel): `npm install @babel/plugin-transform-react-jsx --save-dev`
+- Development types for ReactDom: `npm install @types/react-dom --save-dev`
+- Types: `npm install @types/react --save-dev`
+
+### CSS loaders
+- CSS Webpack loaders: `npm install style-loader css-loader --save-dev`
+- Normalize.css: `npm install normalize.css`
+
+### Webpack Configuration
+
+TypeScript can be transpiled in this project in 2 ways:
+- Using ts-loader Webpack loader
+- Using Babel Webpack loader
+
+The TypeScript transpilation method can be controlled using different npm scripts and webpack config files.
+``` js
+    "serve:ts": "webpack-dev-server --mode development --config webpack.ts.config.js",
+    "serve:babel": "webpack-dev-server --mode development --config webpack.babel.config.js",
+```
+
+The Babel version uses the additional `.babelrc` configuration file to control which Babel plugings to use.
+
+The default Webpack configuration file is shown below:
 
 ``` js
 const path = require("path");
@@ -39,14 +77,21 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 let appName = "webapp";
 
 module.exports = {
-  entry: { main: path.resolve("./src/index.ts") },
+  entry: { main: path.resolve("./src/index.tsx") },
   devtool: "inline-source-map",
   module: {
     rules: [
+      /*
       {
         test: /\.tsx?$/,
         use: "ts-loader",
         exclude: /node_modules/,
+      },
+      */
+      {
+        test: /\.(js|jsx|tsx|ts)$/,
+        exclude: "/node_modules/",
+        loader: "babel-loader",
       },
       {
         test: /\.css$/,
@@ -112,17 +157,25 @@ Notes:
 |  +--component_b.test.js
 ```
 
-### index.ts
+### index.tsx
 
-To get started, just use the following code:
+This file is used to bootstrap React into the DOM:
 
 ``` js
-alert("Welcome to the Web UI Reference Application!");
+import React from "react";
+import { createRoot } from 'react-dom/client';
+import 'normalize.css';
+import './style/index.css';
+import App from './components/App';
+
+const container = document.getElementById('root') as Element;
+const root = createRoot(container);
+root.render(<App />);
 ```
 
 ### Template.html
 
-The following HTML5 template was used:
+The following HTML5 template is used:
 
 ``` html
 <!DOCTYPE html>
@@ -134,11 +187,10 @@ The following HTML5 template was used:
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>Web UI Reference Application</title>
-    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="./style/index.css" /> -->
   </head>
   <body>
-    <h1>Web UI Reference Application</h1>
-    <p>Welcome to the Web UI Reference Application!</p>
+    <div id="root"></div>
   </body>
 </html>
 ```
@@ -148,12 +200,20 @@ The following HTML5 template was used:
 The following scripts are added to the `package.json` file:
 
 ``` json
+    "build": "webpack --mode production --node-env production",
+    "build:dev": "webpack --mode development --node-env development",
+    "build:prod": "webpack --mode production --node-env production",
+    "watch": "webpack --watch",
+    "serve": "webpack-dev-server --mode development",
+    "serve:dev": "webpack-dev-server --mode development",
+    "serve:prod": "webpack-dev-server --mode production",
+    "serve:ts": "webpack-dev-server --mode development --config webpack.ts.config.js",
+    "serve:babel": "webpack-dev-server --mode development --config webpack.babel.config.js",
+    "start": "webpack serve --port 8080 --mode development --open --hot",
+    "compile": "tsc",
     "test": "jest --collectCoverage",
-    "wpw": "webpack --watch",
-    "serve": "webpack-dev-server --mode=development",
-    "go": "start npm run wpw && start npm run serve",
-    "build": "webpack --mode production",
-    "compile": "tsc"
+    "go": "start npm run watch && start npm run serve",
+    "babel": "babel src/index.tsx --out-file dist/babel-bundle.js"
 ```
 
 ### Webpack Watch
@@ -177,11 +237,12 @@ Filename conventions (React)
 Paradigms, Coding Standards:
 - Clean Code (Robert C Martin): https://www.amazon.com/gp/product/0132350882/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0132350882&linkCode=as2&tag=brandonwoz-20&linkId=8af093cb2b8d9a87993f285341ff015a
 - Clean Code (Ryan McDermott - focus on JavaScript): https://github.com/ryanmcdermott/clean-code-javascript
-- 
 
 ## Components
+
+React is used to enable a web site to be built using reusable components. Key decisions for using React are:
 - Functional components only
-- Typed props important
+- Typed props is mandatory (Use of TypeScript)
 
 ## Environments
 
@@ -230,11 +291,18 @@ Then, add the following to the entry `index.ts`:
 
 ### CSS Modules
 
-CSS Modules are 
+CSS Modules are locally scoped CSS files.
 
 ## Testing
+
+## Linting
 
 ## Routes
 
 ## Context
 
+## Debugging (VSCode)
+
+## Links
+- https://dev.to/ruppysuppy/create-react-app-from-scratch-like-a-pro-de0#:~:text=%20Create%20React%20App%20from%20Scratch%20like%20a,use%20npm%20run%20build%20or%20npm...%20More%20
+- https://onoya.dev/react-webpack-babel7-typescript/

@@ -9,17 +9,10 @@ module.exports = {
   devtool: "inline-source-map",
   module: {
     rules: [
-      /*
       {
         test: /\.tsx?$/,
         use: "ts-loader",
         exclude: /node_modules/,
-      },
-      */
-      {
-        test: /\.(js|jsx|tsx|ts)$/,
-        exclude: "/node_modules/",
-        loader: "babel-loader",
       },
       {
         test: /\.css$/,
