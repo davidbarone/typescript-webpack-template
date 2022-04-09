@@ -173,6 +173,24 @@ Paradigms, Coding Standards:
 
 ## Styles + CSS
 
+CSS is added to the Webpack configuration as follows:
+
+`npm install --save-dev css-loader`
+
+webpack.config.js
+``` js
+
+```
+
+### Reset Style
+I use normalize.css as the reset style as follows:
+
+`npm install normalize.css`
+
+Then, add the following to the entry `index.ts`:
+
+`import 'normalize.css';`
+
 ## Testing
 
 ## Routes
