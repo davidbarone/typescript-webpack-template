@@ -328,6 +328,17 @@ declare module '*.css';
 
 ## Routes
 
+React Router is used to link components to the Browser's URL.
+
+https://reactrouterdotcom.fly.dev/docs/en/v6
+
+To configure:
+
+- Add react-router-dom: `npm install react-router-dom`
+- Add the `BrowserRouter` into the main index.tsx, wrapping the `<App />` component.
+- Configure routes in `App.tsx`.
+- Add links, for example in the Header component.
+
 ## Context
 
 ## Debugging (VSCode)

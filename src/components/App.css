@@ -7,5 +7,10 @@ div.app {
   padding: 0;
   height: 100%;
   width: 100%;
-  background: blue;
+}
+
+.container {
+    padding: 56px 20px;
+    min-height: 100%;
+    width: 100%;
 }

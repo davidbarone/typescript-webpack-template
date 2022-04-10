@@ -6,7 +6,7 @@ html, body {
 	width: 100%;
 	padding: 0;
 	margin: 0;
-	background: #DADADA;
+	background: white;
 	font-family: 'Helvetica Neue', arial, sans-serif;
 	font-weight: 400;
 	color: #444;
@@ -20,4 +20,44 @@ html, body {
 
 #app {
 	height: 100%;
+}
+
+.bgColor1 {
+    background-color: #0081c9;
+}
+
+.bgColor2 {
+    background-color: #ed7700;
+}
+
+.bgColor3 {
+    background-color: #425363;
+}
+
+.bgColor4 {
+    background-color: 	#bbbbbb;
+}
+
+.bgColor5 {
+    background-color: 	#dddddd;
+}
+
+.fgColor1 {
+    color: #0081c9;
+}
+
+.fgColor2 {
+    color: #ed7700;
+}
+
+.fgColor3 {
+    color: #425363;
+}
+
+.fgColor4 {
+    color: 	#bbbbbb;
+}
+
+.fgColor5 {
+    color: 	#dddddd;
 }
