@@ -254,7 +254,8 @@ CSS is added to the Webpack configuration as follows:
 
 `npm install --save-dev css-loader style-loader`
 
-webpack.config.js, module section:
+webpack.config.js, module section (Note css-loader comes AFTER style-loader):
+
 ``` js
  module: {
     rules: [
@@ -291,7 +292,35 @@ Then, add the following to the entry `index.ts`:
 
 ### CSS Modules
 
-CSS Modules are locally scoped CSS files.
+CSS Modules are locally scoped CSS files. CSS Modules are configured in thge `webpack.config.js` file.
+
+``` js
+{
+        test: /\.css$/,
+        use: [
+          { loader: "style-loader" },
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              importLoaders: 1,
+            },
+          },
+        ],
+      },
+```
+
+### Global.d.ts
+
+When referencing .css files in .tsx files, you may get following error:
+
+`Cannot find module 'module.css' or its corresponding type declarations`
+
+To import custom file types, you must use TypeScript's declare module syntax to let it know that it's ok to import. To do this, simply create a globals.d.ts (declaration file) wherever your other code's root directory is and then add in this code:
+
+``` js
+declare module '*.css';
+```
 
 ## Testing
 

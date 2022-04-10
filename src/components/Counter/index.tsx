@@ -1,4 +1,6 @@
 import React, { FunctionComponent } from 'react';
+import style from "./style.css";
+
 const { useState, useEffect } = React;
 
 interface CounterProps {
@@ -12,7 +14,7 @@ const Counter: FunctionComponent<CounterProps> = ({ startNumber }) => {
 
   return (
     <>
-      <div>Counter: {value}</div>
+      <div className={style.red}>Counter: {value}</div>
       <button onClick={() => setValue((value) => value + 1)}>Increment</button>
       <button onClick={() => setValue((value) => value - 1)}>Decrement</button>
     </>
