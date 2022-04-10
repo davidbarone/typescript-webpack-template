@@ -48,6 +48,7 @@ Modern web development is complicated. There are a million ways to skin a cat, a
 - Development packages (for Webpack & Babel): `npm install @babel/plugin-transform-react-jsx --save-dev`
 - Development types for ReactDom: `npm install @types/react-dom --save-dev`
 - Types: `npm install @types/react --save-dev`
+- React Router: `npm install react-router-dom`
 
 ### CSS loaders
 - CSS Webpack loaders: `npm install style-loader css-loader --save-dev`
