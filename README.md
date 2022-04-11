@@ -245,7 +245,61 @@ React is used to enable a web site to be built using reusable components. Key de
 - Functional components only
 - Typed props is mandatory (Use of TypeScript)
 
-## Environments
+## Environment Variables
+
+Environment variables need to be stored for multiple environments (dev, prod). This includes server names, API endpoints and other settings.
+
+- Variables to be stored in .env files
+  - Production: `.env.production`
+  - Development: `.env.development`
+- Standard .env file format
+- The dotenv package to be installed using `npm install dotenv --save-dev`
+- Use Webpack `DefinePlugin` plugin to create environment variables:
+
+``` js
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
+const { isConditionalExpression } = require("typescript");
+
+// Change variable to change names of output files.
+let appName = "webapp";
+
+module.exports = (env, argv) => {
+  // Get the correct .env file for the environment:
+
+  const dotenv = require("dotenv").config({
+    path: path.join(
+      __dirname,
+      env.development ? ".env.development" : ".env.production"
+    ),
+  });
+  const appSettings = dotenv.parsed;
+
+  return {
+
+    ...
+
+    plugins: [
+      new webpack.DefinePlugin({
+        "process.env.APP_SETTINGS": JSON.stringify(appSettings),
+      }),
+    ],
+  };
+};
+```
+- The environment variables will be stored at `process.env.APP_SETTINGS`;
+- The environment must be passed in to webpack from the npm script, for example:
+``` js
+    "build:dev": "webpack --mode development --env development",
+    "build:prod": "webpack --mode production --env production",
+```
+- To use in code (for example in helper class to call API):
+``` js
+var settings = process.env.APP_SETTINGS as any;
+console.debug(settings.API_DOMAIN);
+```
+- Ensure the .gitignore file excludes .env files from source code repository.
 
 ## API
 

@@ -6,7 +6,6 @@ const Welcome: FunctionComponent = () => {
         <>
             <h1>Welcome</h1>
             <p>Welome to the Web UI Reference Application. The example below is a simple Function Component.</p>
-
             <Counter startNumber={10} />
         </>
     )
