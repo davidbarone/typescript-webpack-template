@@ -1,6 +1,37 @@
 # webapp
 Web UI Reference Application using TypeScript and Webpack.
 
+- [webapp](#webapp)
+  - [Key design decisions](#key-design-decisions)
+  - [Tooling](#tooling)
+  - [Setup](#setup)
+    - [TypeScript](#typescript)
+    - [WebPack Packages](#webpack-packages)
+    - [Babel Dependencies](#babel-dependencies)
+    - [React Packages](#react-packages)
+    - [CSS loaders](#css-loaders)
+    - [Webpack Configuration](#webpack-configuration)
+    - [Folder Setup](#folder-setup)
+    - [index.tsx](#indextsx)
+    - [Template.html](#templatehtml)
+    - [Npm Scripts](#npm-scripts)
+    - [Webpack Watch](#webpack-watch)
+    - [Run development web server](#run-development-web-server)
+  - [Coding Standards](#coding-standards)
+  - [Components](#components)
+  - [Environment Variables](#environment-variables)
+  - [API](#api)
+  - [Styles + CSS](#styles--css)
+    - [Reset Style](#reset-style)
+    - [CSS Modules](#css-modules)
+    - [Global.d.ts](#globaldts)
+  - [Testing](#testing)
+  - [Linting](#linting)
+  - [Routes](#routes)
+  - [Context](#context)
+  - [Debugging (VSCode)](#debugging-vscode)
+  - [Links](#links)
+
 Modern web development is complicated. There are a million ways to skin a cat, and the average developer has to worry about many design decisions before they evey start to code. This project is an attempt to capture all my personal design decisions into a single place, so I can easily spin up new web projects when needed.
 
 ## Key design decisions
