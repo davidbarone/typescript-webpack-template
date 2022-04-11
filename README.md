@@ -38,6 +38,7 @@ Modern web development is complicated. There are a million ways to skin a cat, a
 - Installing npm packages: `npm install webpack webpack-cli webpack-dev-server --save-dev`
 - Babel Loader: `npm install babel-loader --save-dev`
 - HTML Webpack Plugin: `npm install html-webpack-plugin --save-dev`
+- For environment variables: `npm install dotenv --save-dev`
 
 ### Babel Dependencies
 - Babel CLI (to test babel transpilations): `npm install @babel/cli --save-dev`
