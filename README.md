@@ -448,6 +448,10 @@ To perform linting, add the following npm script to `package.json`:
   "lint": "eslint **/*.tsx"
 ```
 
+To see all the ESLint rules (and which ones are enabled by default):
+
+https://eslint.org/docs/rules/
+
 ## Routes
 
 React Router is used to link components to the Browser's URL.
