@@ -17,7 +17,8 @@
     "compile": "tsc",
     "test": "jest --collectCoverage",
     "go": "start npm run watch && start npm run serve",
-    "babel": "babel src/index.tsx --out-file dist/babel-bundle.js"
+    "babel": "babel src/index.tsx --out-file dist/babel-bundle.js",
+    "lint": "eslint **/*.tsx"
   },
   "repository": {
     "type": "git",
@@ -38,9 +39,13 @@
     "@babel/preset-typescript": "^7.16.7",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
     "babel-loader": "^8.2.4",
     "css-loader": "^6.7.1",
     "dotenv": "^16.0.0",
+    "eslint": "^8.13.0",
+    "eslint-plugin-react": "^7.29.4",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
     "ts-loader": "^9.2.8",

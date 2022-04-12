@@ -413,6 +413,41 @@ declare module '*.css';
 
 ## Linting
 
+Linting is used to check syntax, find problems, and enforce code style. ESLint is used:
+
+https://eslint.org/docs/user-guide/getting-started
+
+`npm install eslint --save-dev`
+
+To initialise, the eslint config file:
+
+`npm init @eslint/config`
+
+Note this will add the @eslint/create-config package.
+- How would you like to use ESLint?: **To check syntax, find problems, and enforce code style**
+- What type of modules does your project use?: **JavaScript modules (import/export)**
+- Which framework does your project use?: **React**
+- Does your project use TypeScript? **Yes**
+- Where does your code run? **Browser**
+- How would you like to define a style for your project: **Answer questions about your style**
+- What format do you want your config file to be in? **JSON**
+- What style of indentation do you use?: **Spaces** (4 space default)
+- What quotes do you use for strings?: **Single**
+- What line endings do you use?: **Windows**
+- Do you require semicolons?: **Yes**
+
+The eslint config tool may then install additional packages, for example:
+
+`eslint-plugin-react@latest @typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest`
+
+- Would you like to install them now with npm?: **Yes**
+
+To perform linting, add the following npm script to `package.json`:
+
+``` js
+  "lint": "eslint **/*.tsx"
+```
+
 ## Routes
 
 React Router is used to link components to the Browser's URL.
