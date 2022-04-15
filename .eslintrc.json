@@ -20,6 +20,8 @@
         "react",
         "@typescript-eslint"
     ],
+    // Ignore webpack .js files which are node CommonJS format.
+    "ignorePatterns": ["/*.js"],    
     "rules": {
         "indent": [
             "error",
