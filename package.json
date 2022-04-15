@@ -18,8 +18,10 @@
     "test": "jest --collectCoverage",
     "go": "start npm run watch && start npm run serve",
     "babel": "babel src/index.tsx --out-file dist/babel-bundle.js",
-    "lint": "eslint **/*.tsx",
-    "lint:fix": "eslint **/*.tsx --fix"
+    "lint": "eslint src/**/*.tsx",
+    "lint:fix": "eslint src/**/*.tsx --fix",
+    "start:api": "npx json-server --watch db.json",
+    "start:all": "run-p start:api serve:dev"
   },
   "repository": {
     "type": "git",
@@ -48,6 +50,8 @@
     "eslint": "^8.13.0",
     "eslint-plugin-react": "^7.29.4",
     "html-webpack-plugin": "^5.5.0",
+    "json-server": "^0.17.0",
+    "npm-run-all": "^4.1.5",
     "style-loader": "^3.3.1",
     "ts-loader": "^9.2.8",
     "typescript": "^4.6.3",

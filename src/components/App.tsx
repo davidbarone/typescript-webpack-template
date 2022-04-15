@@ -5,6 +5,7 @@ import Welcome from '../routes/Welcome';
 import Posts from '../routes/Posts';
 import Profile from '../routes/Profile';
 import Header from './Header';
+import { ToastContainer } from '../widgets/myToast';
 
 const App: FC = () => {
     return (
@@ -17,6 +18,7 @@ const App: FC = () => {
                     <Route path="/" element={<Welcome />} />
                     <Route path="*" element={<Welcome />} />
                 </Routes>
+                <ToastContainer />                
             </div>
         </div >
     );

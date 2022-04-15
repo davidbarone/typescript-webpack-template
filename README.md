@@ -30,6 +30,7 @@ Web UI Reference Application using TypeScript and Webpack.
   - [Routes](#routes)
   - [Context](#context)
   - [Debugging (VSCode)](#debugging-vscode)
+  - [Fake API](#fake-api)
   - [Links](#links)
 
 Modern web development is complicated. There are a million ways to skin a cat, and the average developer has to worry about many design decisions before they evey start to code. This project is an attempt to capture all my personal design decisions into a single place, so I can easily spin up new web projects when needed.
@@ -468,6 +469,36 @@ To configure:
 ## Context
 
 ## Debugging (VSCode)
+
+## Fake API
+
+Fake APIs are useful for several reasons:
+- Don't need to wait until real API is built
+- Can test the API interface early
+- Can use for testing (Fake APIs can be seeded with test data)
+- Quicker (no network IO)
+- Simpler - no dependency on API project
+
+`Json-server` is used for generating fake API servers:
+
+- `npm install json-server npm-run-all --save-dev`
+- Create a db.json file (can be in root, or could be in utils folder)
+- Populate with data
+- Start with `npx json-server --watch db.json`
+- To run in parallel with React, use the npm-run-all package
+
+``` js
+  "start:api": "npx json-server --watch db.json",
+  "start:all" : "run-p start:api serve:dev"
+```
+
+(Note this uses run-p to run npm scripts in parallel.)
+
+Other useful links:
+- Lorem Ipsum generator: https://loremipsumgenerator.org/
+- Free online fake API server: https://my-json-server.typicode.com/
+- Json-server source (GitHub), including instructions: https://github.com/typicode/json-server
+- 
 
 ## Links
 - https://dev.to/ruppysuppy/create-react-app-from-scratch-like-a-pro-de0#:~:text=%20Create%20React%20App%20from%20Scratch%20like%20a,use%20npm%20run%20build%20or%20npm...%20More%20
