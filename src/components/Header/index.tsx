@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { Link } from "react-router-dom";
-import style from "./style.css";
+import { Link } from 'react-router-dom';
+import style from './style.css';
 
 const Header: FunctionComponent = () => (
     <header className={style.header}>

@@ -18,7 +18,8 @@
     "test": "jest --collectCoverage",
     "go": "start npm run watch && start npm run serve",
     "babel": "babel src/index.tsx --out-file dist/babel-bundle.js",
-    "lint": "eslint **/*.tsx"
+    "lint": "eslint **/*.tsx",
+    "lint:fix": "eslint **/*.tsx --fix"
   },
   "repository": {
     "type": "git",
