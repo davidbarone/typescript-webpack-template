@@ -29,16 +29,16 @@ function MyTable<DataType extends { id: number }>(
             <table className={style.myTable}>
                 <thead>
                     <tr>
-                        {Object.keys(props.mapping).map((k) => (
-                            <th key='-1'>{k}</th>
+                        {Object.keys(props.mapping).map((k,i) => (
+                            <th key={i}>{k}</th>
                         ))}
                     </tr>
                 </thead>
                 <tbody>
                     {props.data.map((row) => (
                         <tr key={row.id}>
-                            {Object.keys(props.mapping).map((k) => (
-                                <td key={row.id}>{props.mapping[k](row as DataType)}</td>
+                            {Object.keys(props.mapping).map((k,i) => (
+                                <td key={i}>{props.mapping[k](row as DataType)}</td>
                             ))}
                         </tr>
                     ))}

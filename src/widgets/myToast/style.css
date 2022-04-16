@@ -80,7 +80,7 @@
 .toast-item {
   color: black;
   position: relative;
-  padding: 4px 80px;
+  padding: 20px 120px;
   margin: 2px;
   border: 1px solid black;
   border-left: 20px solid black;
@@ -94,7 +94,7 @@
   box-shadow: -4px -4px 16px -6px rgba(0,0,0,1);
 }
 .toast-item-success {
-  background-color: #28a745;
+  background-color: rgb(150, 250, 150);
 }
 .toast-item-danger {
   background-color: #dc3545;

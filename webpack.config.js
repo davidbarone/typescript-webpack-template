@@ -54,6 +54,7 @@ module.exports = (env, argv) => {
         },
         output: {
             path: path.resolve(__dirname, 'dist'),
+            publicPath: '/',
             filename: `${appName}.js`,
         },
         plugins: [

@@ -8,7 +8,7 @@ table.myTable {
 }
 
 table.myTable thead tr th {
-  background-color: #aaccee;
+  background-color: var(--color2);
   padding: 0.5em 1em;
   text-align: left;
 }
@@ -22,7 +22,7 @@ table.myTable tbody tr:nth-of-type(even) {
 }
 
 table.myTable tbody tr:last-of-type {
-  border-bottom: 4px solid #aaccee;
+  border-bottom: 4px solid var(--color2);
 }
 
 table.myTable tbody tr:hover {

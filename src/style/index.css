@@ -61,3 +61,12 @@ html, body {
 .fgColor5 {
     color: 	#dddddd;
 }
+
+/* Global Variables */
+:root {
+    --color1: #0081c9;
+    --color2: #ed7700;
+    --color3: #425363;
+    --color4: #bbbbbb;
+    --color5: #dddddd;
+}

@@ -75,6 +75,7 @@ Modern web development is complicated. There are a million ways to skin a cat, a
 ### Babel Dependencies
 - Babel CLI (to test babel transpilations): `npm install @babel/cli --save-dev`
 - Presets: `npm install @babel/core @babel/preset-react @babel/preset-env @babel/preset-typescript --save-dev`
+- Support of JavaScript async / await in Babel: `npm install --save-dev @babel/plugin-transform-runtime`
 
 ### React Packages
 - Runtime packages: `npm install react react-dom`

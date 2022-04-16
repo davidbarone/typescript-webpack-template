@@ -1,6 +1,8 @@
 import React, { useState, useEffect, FunctionComponent } from 'react';
-import { httpGet } from '../../utils/ApiFacade';
+import { httpGet, httpDelete } from '../../utils/ApiFacade';
 import MyTable from '../../widgets/myTable';
+import MyButton from '../../widgets/myButton';
+import App from '../../components/App';
 
 type PostType = {
     id: number,
@@ -11,8 +13,16 @@ type PostType = {
 const Posts: FunctionComponent = () => {
     const [posts, setPosts] = useState<Array<PostType>>([]);
 
+    const getPosts = () => {
+        httpGet('/posts', 'Loaded posts successfully.').then((result) => setPosts(result.body));
+    };
+
+    const deletePost = (id: number) => {
+        httpDelete(`/posts/${id}`, `Deleted post ${id} successfully.`).then(r => getPosts());
+    };
+
     useEffect(() => {
-        httpGet('/posts', 'Loaded posts').then((result) => setPosts(result));
+        getPosts();
     }, []);
           
     return (
@@ -24,7 +34,32 @@ const Posts: FunctionComponent = () => {
                 mapping={{
                     'Id': (row) => (<>{row.id}</>),
                     'Title': (row) => (<>{row.title}</> ),
-                    'Teaser': (row) => (<>{row.teaser}</>)
+                    'Teaser': (row) => (<>{row.teaser}</>),
+                    'Edit': (row) => (
+                        <>
+                            <MyButton
+                                title="View post"
+                                label="View"
+                                visible={true}
+                                click={(e) => {
+                                    window.location.href = `/post/${row.id}`;
+                                    e.preventDefault();
+                                }} />
+                        </>
+                    ),
+                    'Delete': (row) => (
+                        <>
+                            <MyButton
+                                title="Delete post"
+                                label="Delete"
+                                visible={true}
+                                click={(e) => {
+                                    deletePost(row.id);
+                                    e.preventDefault();
+                                }} />
+                        </>
+                    )
+
                 }}
             />
         </>

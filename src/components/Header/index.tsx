@@ -12,8 +12,8 @@ const Header: FunctionComponent = () => (
             <Link to="/posts">
                 Posts
             </Link>
-            <Link to="/profile">
-                Me
+            <Link to="/counter">
+                Counter
             </Link>
         </nav>
     </header>
