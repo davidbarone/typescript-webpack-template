@@ -495,6 +495,22 @@ Fake APIs are useful for several reasons:
 
 (Note this uses run-p to run npm scripts in parallel.)
 
+The `--watch` behaviour results in any POST, DELETE, PUT methods updating the db.json file. This may not be what you require.
+For example, to ensure a repeatable data environment, you may require the data file to reinitialise each time the app is restarted.
+To do this, two additional modules have been created:
+- `createMockDb.js`: This creates a new clean version of db.json
+- `jsonServer.js`: This runs Json-Server as a module, and allows extra configuration
+
+``` js
+    "start:api": "node tools/jsonServer.js",
+    "prestart:api": "node tools/createMockDb.js",
+    "start:all": "run-p start:api serve:dev"
+```
+
+Note: the `prestart:api` script will always run before `start:api` by convention.
+
+(Thanks to https://github.com/coryhouse/react-flux-building-applications)
+
 Other useful links:
 - Lorem Ipsum generator: https://loremipsumgenerator.org/
 - Free online fake API server: https://my-json-server.typicode.com/

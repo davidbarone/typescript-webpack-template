@@ -21,7 +21,7 @@
         "@typescript-eslint"
     ],
     // Ignore webpack .js files which are node CommonJS format.
-    "ignorePatterns": ["/*.js"],    
+    "ignorePatterns": ["/*.js", "tools/*.js"],    
     "rules": {
         "indent": [
             "error",

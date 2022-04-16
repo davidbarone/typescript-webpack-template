@@ -20,7 +20,9 @@
     "babel": "babel src/index.tsx --out-file dist/babel-bundle.js",
     "lint": "eslint src/**/*.tsx",
     "lint:fix": "eslint src/**/*.tsx --fix",
-    "start:api": "npx json-server --watch db.json",
+    "start:api": "node tools/jsonServer.js",
+    "prestart:api": "node tools/createMockDb.js",
+    "start:api2": "npx json-server --watch db.json",
     "start:all": "run-p start:api serve:dev"
   },
   "repository": {
