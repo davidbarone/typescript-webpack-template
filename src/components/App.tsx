@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { Routes, Route, useParams } from 'react-router-dom';
 import style from './App.css';
-import Welcome from '../routes/Welcome';
-import Posts from '../routes/Posts';
-import Post from '../routes/Post';
+import Welcome from '../routes/WelcomeRoute';
+import Posts from '../routes/PostsRoute';
+import Post from '../routes/PostRoute';
 import CounterRoute from '../routes/CounterRoute';
 import Header from './Header';
 import { ToastContainer } from '../widgets/myToast';

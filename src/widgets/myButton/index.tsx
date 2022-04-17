@@ -1,20 +1,30 @@
 import React, { FunctionComponent, MouseEventHandler } from 'react';
 import style from './style.css';
 
-type ButtonPropsType = {
-  title: string;
-  label: string;
-  visible: boolean;
-  click: MouseEventHandler<HTMLButtonElement>;
+interface ButtonPropsType {
+    title?: string;
+    label: string | undefined;
+    visible?: boolean;
+    click?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+    href?: string | undefined;
 }
 
-const MyButton: FunctionComponent<ButtonPropsType> = ({ label, visible, click, title }) => {
+const MyButton: FunctionComponent<ButtonPropsType> = ({ label = undefined, visible = true, click, title = '', href = undefined }) => {
+
+    const doClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
+        if (href) {
+            window.location.href = href;
+        } else if (click) {
+            click(e);
+        }
+    };
+
     return (
         <button
             className={style.myButton}
             title={title}
             style={visible ? style['display:inline'] : style['display: none']}
-            onClick={click}
+            onClick={doClick}
         >
             {label}
         </button>

@@ -2,7 +2,8 @@ import React, { useState, useEffect, FunctionComponent } from 'react';
 import { httpGet, httpDelete } from '../../utils/ApiFacade';
 import MyTable from '../../widgets/myTable';
 import MyButton from '../../widgets/myButton';
-import App from '../../components/App';
+import MySlider from '../../widgets/mySlider';
+import EditPost from '../../components/EditPost';
 
 type PostType = {
     id: number,
@@ -12,6 +13,8 @@ type PostType = {
 
 const Posts: FunctionComponent = () => {
     const [posts, setPosts] = useState<Array<PostType>>([]);
+    const visibilityState = useState<boolean>(false);
+    const [sliderVisibility, setSliderVisibility] = visibilityState;
 
     const getPosts = () => {
         httpGet('/posts', 'Loaded posts successfully.').then((result) => setPosts(result.body));
@@ -24,7 +27,7 @@ const Posts: FunctionComponent = () => {
     useEffect(() => {
         getPosts();
     }, []);
-          
+
     return (
         <>
             <h1>Posts</h1>
@@ -33,18 +36,16 @@ const Posts: FunctionComponent = () => {
                 visible={true}
                 mapping={{
                     'Id': (row) => (<>{row.id}</>),
-                    'Title': (row) => (<>{row.title}</> ),
+                    'Title': (row) => (<>{row.title}</>),
                     'Teaser': (row) => (<>{row.teaser}</>),
                     'Edit': (row) => (
                         <>
                             <MyButton
                                 title="View post"
                                 label="View"
+                                href={`/post/${row.id}`}
                                 visible={true}
-                                click={(e) => {
-                                    window.location.href = `/post/${row.id}`;
-                                    e.preventDefault();
-                                }} />
+                            />
                         </>
                     ),
                     'Delete': (row) => (
@@ -62,6 +63,14 @@ const Posts: FunctionComponent = () => {
 
                 }}
             />
+
+            {/* Slider for creating new posts */}
+            <MySlider visibilityState={visibilityState} onClose={getPosts}>
+                <EditPost id={undefined}></EditPost>
+            </MySlider>
+
+            <MyButton click={() => { setSliderVisibility(!sliderVisibility); }} label="New Post"></MyButton>
+            
         </>
     );
 };

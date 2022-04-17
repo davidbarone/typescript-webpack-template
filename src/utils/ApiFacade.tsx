@@ -135,7 +135,55 @@ async function httpDelete(url: string, successMessage: string): Promise<Flattene
         });
 }
 
+/**
+ * Generic Http POST
+ * @param url 
+ * @returns 
+ */
+async function httpPost(url: string, body: object, successMessage: string): Promise<FlattenedResponse> {
+    url = getFullUrl(url);
+    return fetchWrapper(url, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body)
+    })
+        .then((response) => handleResponse(response, successMessage))
+        .then((response) => response)
+        .catch((error) => {
+            toastFailure(error);
+            throw error;
+        });
+}
+
+/**
+ * Generic Http PUT
+ * @param url 
+ * @returns 
+ */
+async function httpPut(url: string, body: object, successMessage: string): Promise<FlattenedResponse> {
+    url = getFullUrl(url);
+    return fetchWrapper(url, {
+        method: 'PUT',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body)
+    })
+        .then((response) => handleResponse(response, successMessage))
+        .then((response) => response)
+        .catch((error) => {
+            toastFailure(error);
+            throw error;
+        });
+}
+
 export {
     httpGet,
-    httpDelete
+    httpDelete,
+    httpPost,
+    httpPut
 };
