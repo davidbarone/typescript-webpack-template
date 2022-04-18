@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import Counter from '../../components/Counter';
+import Counter from '../../components/CounterComponent';
 
 const CounterRoute: FunctionComponent = () => {
     return (

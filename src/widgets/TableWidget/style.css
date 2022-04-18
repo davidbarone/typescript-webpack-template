@@ -1,4 +1,4 @@
-table.myTable {
+table.TableWidget {
   border-collapse: collapse;
   font-size: 1em;
   font-family: sans-serif;
@@ -7,24 +7,24 @@ table.myTable {
   border-collapse: collapse;
 }
 
-table.myTable thead tr th {
+table.TableWidget thead tr th {
   background-color: var(--color2);
   padding: 0.5em 1em;
   text-align: left;
 }
 
-table.myTable tbody tr td {
+table.TableWidget tbody tr td {
   padding: 0.2em 1em;
 }
 
-table.myTable tbody tr:nth-of-type(even) {
+table.TableWidget tbody tr:nth-of-type(even) {
   background-color: #f0f0f0;
 }
 
-table.myTable tbody tr:last-of-type {
+table.TableWidget tbody tr:last-of-type {
   border-bottom: 4px solid var(--color2);
 }
 
-table.myTable tbody tr:hover {
+table.TableWidget tbody tr:hover {
   background-color: #c3d3e3;
 }

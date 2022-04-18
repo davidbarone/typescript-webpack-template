@@ -5,8 +5,8 @@ import Welcome from '../routes/WelcomeRoute';
 import Posts from '../routes/PostsRoute';
 import Post from '../routes/PostRoute';
 import CounterRoute from '../routes/CounterRoute';
-import Header from './Header';
-import { ToastContainer } from '../widgets/myToast';
+import Header from './HeaderComponent';
+import { ToastContainer } from '../widgets/ToastWidget';
 
 const App: FC = () => {
     return (

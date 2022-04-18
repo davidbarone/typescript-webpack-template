@@ -1,9 +1,9 @@
 import React, { useState, useEffect, FunctionComponent } from 'react';
 import { httpGet, httpDelete } from '../../utils/ApiFacade';
-import MyTable from '../../widgets/myTable';
-import MyButton from '../../widgets/myButton';
-import MySlider from '../../widgets/mySlider';
-import EditPost from '../../components/EditPost';
+import TableWidget from '../../widgets/TableWidget';
+import ButtonWidget from '../../widgets/ButtonWidget';
+import SliderWidget from '../../widgets/SliderWidget';
+import EditPostComponent from '../../components/EditPostComponent';
 
 type PostType = {
     id: number,
@@ -11,7 +11,7 @@ type PostType = {
     teaser: string
 }
 
-const Posts: FunctionComponent = () => {
+const PostsRoute: FunctionComponent = () => {
     const [posts, setPosts] = useState<Array<PostType>>([]);
     const visibilityState = useState<boolean>(false);
     const [sliderVisibility, setSliderVisibility] = visibilityState;
@@ -31,7 +31,7 @@ const Posts: FunctionComponent = () => {
     return (
         <>
             <h1>Posts</h1>
-            <MyTable<PostType>
+            <TableWidget<PostType>
                 data={posts}
                 visible={true}
                 mapping={{
@@ -40,7 +40,7 @@ const Posts: FunctionComponent = () => {
                     'Teaser': (row) => (<>{row.teaser}</>),
                     'Edit': (row) => (
                         <>
-                            <MyButton
+                            <ButtonWidget
                                 title="View post"
                                 label="View"
                                 href={`/post/${row.id}`}
@@ -50,7 +50,7 @@ const Posts: FunctionComponent = () => {
                     ),
                     'Delete': (row) => (
                         <>
-                            <MyButton
+                            <ButtonWidget
                                 title="Delete post"
                                 label="Delete"
                                 visible={true}
@@ -65,14 +65,13 @@ const Posts: FunctionComponent = () => {
             />
 
             {/* Slider for creating new posts */}
-            <MySlider visibilityState={visibilityState} onClose={getPosts}>
-                <EditPost id={undefined}></EditPost>
-            </MySlider>
+            <SliderWidget visibilityState={visibilityState} onClose={getPosts}>
+                <EditPostComponent id={undefined}></EditPostComponent>
+            </SliderWidget>
 
-            <MyButton click={() => { setSliderVisibility(!sliderVisibility); }} label="New Post"></MyButton>
-            
+            <ButtonWidget click={() => { setSliderVisibility(!sliderVisibility); }} label="New Post"></ButtonWidget>
         </>
     );
 };
 
-export default Posts;
+export default PostsRoute;

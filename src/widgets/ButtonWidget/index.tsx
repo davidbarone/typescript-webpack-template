@@ -9,7 +9,7 @@ interface ButtonPropsType {
     href?: string | undefined;
 }
 
-const MyButton: FunctionComponent<ButtonPropsType> = ({ label = undefined, visible = true, click, title = '', href = undefined }) => {
+const ButtonWidget: FunctionComponent<ButtonPropsType> = ({ label = undefined, visible = true, click, title = '', href = undefined }) => {
 
     const doClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
         if (href) {
@@ -21,7 +21,7 @@ const MyButton: FunctionComponent<ButtonPropsType> = ({ label = undefined, visib
 
     return (
         <button
-            className={style.myButton}
+            className={style.ButtonWidget}
             title={title}
             style={visible ? style['display:inline'] : style['display: none']}
             onClick={doClick}
@@ -31,4 +31,4 @@ const MyButton: FunctionComponent<ButtonPropsType> = ({ label = undefined, visib
     );
 };
 
-export default MyButton;
+export default ButtonWidget;

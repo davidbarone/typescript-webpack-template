@@ -1,4 +1,4 @@
-import { toast } from '../widgets/myToast';
+import { toast } from '../widgets/ToastWidget';
 
 type SettingsType = {
     API_DOMAIN: string

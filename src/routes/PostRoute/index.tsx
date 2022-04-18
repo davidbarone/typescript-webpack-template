@@ -1,16 +1,16 @@
 import React, { useState, useEffect, FunctionComponent } from 'react';
 import { httpGet } from '../../utils/ApiFacade';
-import { PostType } from '../../models/PostType';
-import MyButton from '../../widgets/myButton';
-import MySlider from '../../widgets/mySlider';
-import EditPost from '../../components/EditPost';
+import { PostType } from '../../models/PostModel';
+import ButtonWidget from '../../widgets/ButtonWidget';
+import SliderWidget from '../../widgets/SliderWidget';
+import EditPostComponent from '../../components/EditPostComponent';
 import ViewCommentsComponent from '../../components/ViewCommentsComponent';
 
 interface PostProps {
     id: number;
 }
 
-const Post: FunctionComponent<PostProps> = ({ id }) => {
+const PostRoute: FunctionComponent<PostProps> = ({ id }) => {
     const [post, setPost] = useState<PostType>({} as PostType);
     const visibilityState = useState<boolean>(false);
     const [sliderVisibility, setSliderVisibility] = visibilityState;
@@ -28,17 +28,17 @@ const Post: FunctionComponent<PostProps> = ({ id }) => {
             <h1>{post.title}</h1>
             <p>{post.content}</p>
 
-            <MyButton click={() => { setSliderVisibility(!sliderVisibility); }} label="Edit Post"></MyButton>
-            <MyButton href='/posts' label="Posts"></MyButton>
+            <ButtonWidget click={() => { setSliderVisibility(!sliderVisibility); }} label="Edit Post"></ButtonWidget>
+            <ButtonWidget href='/posts' label="Posts"></ButtonWidget>
 
             <ViewCommentsComponent postId={id} comments={post.comments}></ViewCommentsComponent>
 
             {/* Slider for creating new posts */}
-            <MySlider visibilityState={visibilityState} onClose={init}>
-                <EditPost id={post.id}></EditPost>
-            </MySlider>
+            <SliderWidget visibilityState={visibilityState} onClose={init}>
+                <EditPostComponent id={post.id}></EditPostComponent>
+            </SliderWidget>
         </>
     );
 };
 
-export default Post;
+export default PostRoute;

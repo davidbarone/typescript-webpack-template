@@ -1,6 +1,6 @@
 import React, { useState, useEffect, FunctionComponent } from 'react';
 import { httpGet, httpPost, httpPut } from '../../utils/ApiFacade';
-import MyInput from '../../widgets/myInput';
+import InputWidget from '../../widgets/InputWidget';
 import { formToJson } from '../../utils/Utilities';
 import { CommentModel } from '../../models/CommentModel';
 
@@ -42,21 +42,21 @@ const EditCommentComponent: FunctionComponent<CommentProps> = ({ id = null, post
     return (
         <form onSubmit={handleSubmit}>
             <h1>Add / Edit Comment</h1>
-            <MyInput name='postId' state={commentState} type='hidden'></MyInput>
-            <MyInput
+            <InputWidget name='postId' state={commentState} type='hidden'></InputWidget>
+            <InputWidget
                 label='User'
                 name='user'
                 state={commentState}
                 type='text' />
 
-            <MyInput
+            <InputWidget
                 label='Comment'
                 name='comment'
                 type='text'
                 state={commentState}
                 rows={5} />
 
-            <MyInput
+            <InputWidget
                 type='submit'
             />
         </form>

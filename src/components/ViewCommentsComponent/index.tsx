@@ -1,11 +1,7 @@
-import React, { useState, useEffect, FunctionComponent } from 'react';
-import { httpGet, httpPost, httpPut } from '../../utils/ApiFacade';
-import { PostType } from '../../models/PostType';
-import MyInput from '../../widgets/myInput';
-import MyButton from '../../widgets/myButton';
-import { formToJson } from '../../utils/Utilities';
+import React, { useState, FunctionComponent } from 'react';
+import ButtonWidget from '../../widgets/ButtonWidget';
 import { CommentModel } from '../../models/CommentModel';
-import MySlider from '../../widgets/mySlider';
+import SliderWidget from '../../widgets/SliderWidget';
 import EditCommentComponent from '../EditCommentComponent';
 
 interface ViewCommentProps {
@@ -40,12 +36,12 @@ const ViewCommentsComponent: FunctionComponent<ViewCommentProps> = ({ postId, co
                 comments ? comments.map(c => SingleComment(c)) : ''
             }
 
-            <MyButton click={() => { setSliderVisibility(!sliderVisibility); }} label="New Comment"></MyButton>
+            <ButtonWidget click={() => { setSliderVisibility(!sliderVisibility); }} label="New Comment"></ButtonWidget>
 
             {/* Slider for creating new comments */}
-            <MySlider visibilityState={visibilityState}>
+            <SliderWidget visibilityState={visibilityState}>
                 <EditCommentComponent postId={postId}></EditCommentComponent>
-            </MySlider>
+            </SliderWidget>
 
         </>
     );

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-const Welcome: FunctionComponent = () => {
+const WelcomeRoute: FunctionComponent = () => {
     return (
         <>
             <h1>Welcome</h1>
@@ -11,4 +11,4 @@ const Welcome: FunctionComponent = () => {
     );
 };
 
-export default Welcome;
+export default WelcomeRoute;

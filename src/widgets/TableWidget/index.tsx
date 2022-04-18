@@ -21,12 +21,12 @@ type TablePropsType<T> = {
  * @param props 
  * @returns 
  */
-function MyTable<DataType extends { id: number }>(
+function TableWidget<DataType extends { id: number }>(
     props: PropsWithChildren<TablePropsType<DataType>>
 ) {
     return (
         <div style={{ display: props.visible ? 'block' : 'none' }}>
-            <table className={style.myTable}>
+            <table className={style.TableWidget}>
                 <thead>
                     <tr>
                         {Object.keys(props.mapping).map((k,i) => (
@@ -48,4 +48,4 @@ function MyTable<DataType extends { id: number }>(
     );
 }
 
-export default MyTable;
+export default TableWidget;

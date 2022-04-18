@@ -16,7 +16,7 @@ interface InputProps {
 }
 
 
-const MyInput: FunctionComponent<InputProps> = ({ name = undefined, type, label = undefined, state = undefined, disabled = false, rows = 1, onInputHook = undefined }) => {
+const InputWidget: FunctionComponent<InputProps> = ({ name = undefined, type, label = undefined, state = undefined, disabled = false, rows = 1, onInputHook = undefined }) => {
     const [obj, setObj] = state ? state : [undefined, undefined];
   
     const onInput = (e: any ) => {
@@ -65,4 +65,4 @@ const MyInput: FunctionComponent<InputProps> = ({ name = undefined, type, label 
     );
 };
 
-export default MyInput;
+export default InputWidget;

@@ -11,7 +11,7 @@ label {
   background: #ddd;
 }
 
-button.myButton {
+button.ButtonWidget {
   margin-right: 8px;
   display: inline-block;
   height: 30px;
@@ -30,14 +30,14 @@ button.myButton {
   background: var(--color1);
 }
 
-button.myButton:hover {
+button.ButtonWidget:hover {
   color: white;
   background-color: var(--color2);
   border-color: #888;
   outline: 0;
 }
 
-button.myButton:visited {
+button.ButtonWidget:visited {
   text-decoration: none;
   background-color: green;
 }

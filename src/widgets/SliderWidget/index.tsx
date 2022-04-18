@@ -12,7 +12,7 @@ interface SliderProps {
  * @param param0 
  * @returns 
  */
-const MySlider: FunctionComponent<SliderProps> = ({ visibilityState, onClose = () => { return; }, children = []}) => {
+const SliderWidget: FunctionComponent<SliderProps> = ({ visibilityState, onClose = () => { return; }, children = []}) => {
     const contentDiv = useRef<HTMLDivElement>(null);
     const modalDiv = useRef<HTMLDivElement>(null);
     const [visible, setVisible] = visibilityState;
@@ -69,4 +69,4 @@ const MySlider: FunctionComponent<SliderProps> = ({ visibilityState, onClose = (
     );
 };
 
-export default MySlider;
+export default SliderWidget;
