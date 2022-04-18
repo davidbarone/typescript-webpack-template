@@ -28,7 +28,17 @@ server.use((req, res, next) => {
     // Continue to JSON Server router
     next();
 });
-  
+
+// Fix up data types
+server.use((req, res, next) => {
+  if (req.method === "POST" || req.method === "PUT") {
+    req.body.postId = parseInt(req.body.postId);
+  }
+  // Continue to JSON Server router
+  next();
+});
+
+
 server.use(router)
 
 server.listen(3000, () => {

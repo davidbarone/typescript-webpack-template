@@ -1,3 +1,90 @@
+const comments = [
+  {
+    id: 1,
+    user: 'John Doe',
+    postId: 1,
+    createdDt: '01-Jan-2022',
+    comment: 'Ut pharetra commodo imperdiet sapien suspendisse habitant ornare turpis faucibus nulla, scelerisque iaculis bibendum enim curabitur vitae mi litora inceptos tristique, justo non felis fames vestibulum in ipsum dolor ullamcorper. Lacus dolor aliquet eu tellus tortor eros facilisi at malesuada rhoncus sit, placerat pharetra justo hac natoque diam in egestas blandit.'
+  },
+  {
+    id: 2,
+    user: 'Jane Doe',
+    postId: 1,
+    createdDt: '02-Jan-2022',
+    comment: 'Gravida pharetra molestie vehicula libero mattis justo iaculis laoreet vel dictum, est quisque morbi himenaeos bibendum convallis ullamcorper arcu fermentum, turpis quis maecenas neque donec eu mollis tincidunt conubia. Phasellus sit class arcu amet porttitor posuere, magnis porta lobortis consequat volutpat ipsum varius, non pulvinar velit cum ante. Et dui vulputate rhoncus est odio mollis luctus nam primis id vehicula, per tempor feugiat risus tellus eros scelerisque cubilia quisque cum, convallis phasellus lorem facilisis gravida ante potenti placerat bibendum faucibus.'
+  },  
+  {
+    id: 3,
+    user: 'John Roe',
+    postId: 2,
+    createdDt: '03-Jan-2022',
+    comment: 'Posuere himenaeos ornare duis ante augue eros, taciti habitant convallis nunc faucibus, rutrum orci porttitor dignissim lacinia. Blandit suspendisse semper nisl justo pretium cum lorem et, vehicula duis pellentesque mattis turpis ipsum habitasse tincidunt, congue rutrum elementum auctor vitae mauris egestas. Porta justo mauris parturient sollicitudin amet dignissim facilisis eleifend felis luctus blandit cum, phasellus vulputate id diam purus dis arcu cras primis elementum imperdiet.'
+  },  
+  {
+    id: 4,
+    user: 'Richard Roe',
+    postId: 2,
+    createdDt: '04-Jan-2022',
+    comment: 'Sociis enim pretium risus urna nostra scelerisque, netus elementum ac lobortis ut elit, penatibus vel himenaeos felis arcu. Elementum natoque vitae orci taciti vel rhoncus congue sociis nostra proin euismod, neque ut turpis fusce potenti tellus montes massa mauris justo integer aenean, pretium platea hac eget varius suspendisse dictumst cum magnis mus. Consequat et cum egestas eget eros dolor ullamcorper scelerisque suscipit, per neque lobortis imperdiet dictum lacus facilisi.'
+  },  
+  {
+    id: 5,
+    user: 'Jane Roe',
+    postId: 2,
+    createdDt: '05-Jan-2022',
+    comment: 'Litora ac sociosqu per erat vitae sem felis placerat, diam aenean eget scelerisque habitant quam amet dapibus, nam lacus neque fusce ultrices netus adipiscing. Vulputate tristique feugiat potenti augue nam maecenas non tellus, nunc ridiculus egestas netus pulvinar curabitur sapien rutrum, litora semper quisque nulla integer condimentum elit. Mus porta mollis non primis fusce dictum enim tincidunt natoque, bibendum nascetur penatibus ad litora platea habitasse per.'
+  },  
+  {
+    id: 6,
+    user: 'Baby Doe',
+    postId: 5,
+    createdDt: '06-Feb-2022',
+    comment: 'Ipsum porta hendrerit amet quis dignissim pretium, parturient ut natoque lectus taciti. Litora a praesent dis libero vivamus molestie sagittis scelerisque id elit inceptos odio, dapibus habitant accumsan massa ornare mattis vitae felis tempus tortor velit sapien, dictum convallis porttitor consequat nunc cubilia purus taciti etiam porta maecenas. Laoreet porttitor pretium pellentesque lacinia praesent curae placerat nostra parturient hendrerit, semper suscipit etiam quisque dis pulvinar amet malesuada facilisis.'
+  },  
+  {
+    id: 7,
+    user: 'Janie Doe',
+    postId: 6,
+    createdDt: '01-Feb-2022',
+    comment: 'Dictum integer torquent inceptos dictumst elementum erat dapibus, neque tellus lectus sociosqu proin volutpat mauris lorem, lacinia felis amet posuere interdum nulla. Sociis class parturient pellentesque condimentum placerat varius arcu auctor cursus, cum vivamus consectetur vehicula justo maecenas pulvinar aliquet mauris facilisi, eros lectus nam eget venenatis fusce rhoncus sed. Purus enim suspendisse dictum aliquam ante lacinia semper vestibulum, felis ultrices penatibus accumsan varius egestas sociis, ut natoque nullam etiam ac diam ullamcorper.'
+  },  
+  {
+    id: 8,
+    user: 'Jonny Doe',
+    postId: 6,
+    createdDt: '01-Feb-2022',
+    comment: 'Lorem velit cubilia placerat fames dui nisi, praesent sapien potenti ligula lectus convallis, accumsan mattis lacus imperdiet maecenas. Elit pharetra nulla et parturient accumsan risus natoque varius, velit congue enim mus litora sagittis vitae cubilia torquent, dolor ultrices purus ultricies porta tempor justo. Ultrices proin aptent leo diam tellus montes, ad in lobortis lacus vivamus sodales, amet risus euismod nec commodo.'
+  },  
+  {
+    id: 9,
+    user: 'John Doe',
+    postId: 7,
+    createdDt: '01-Feb-2022',
+    comment: 'Rhoncus etiam fermentum dolor sociis consequat imperdiet semper vehicula lacus, mollis accumsan vulputate euismod maecenas leo facilisi non massa eu, eget cum per est nulla velit sem ligula. Cursus scelerisque a porta orci fusce suspendisse felis inceptos ad, magnis vivamus condimentum mus non ridiculus ultricies ornare laoreet, ultrices parturient tempus amet conubia lobortis nunc montes.'
+  },  
+  {
+    id: 10,
+    user: 'Jane Doe',
+    postId: 7,
+    createdDt: '01-Feb-2022',
+    comment: 'Venenatis etiam eu metus vitae interdum magna suspendisse dapibus erat, consectetur lectus dui sagittis penatibus lacus fermentum elementum turpis condimentum, tempus rutrum tempor parturient mus orci sociosqu dictum. Himenaeos fames per nullam id mus imperdiet litora vestibulum malesuada, pharetra placerat potenti dis dapibus primis nec amet nascetur volutpat, non montes pulvinar lobortis ut arcu interdum donec.'
+  },  
+  {
+    id: 11,
+    user: 'John Roe',
+    postId: 7,
+    createdDt: '01-Feb-2022',
+    comment: 'Praesent odio conubia auctor tellus ut maecenas duis felis penatibus eu vehicula, convallis suscipit ligula orci enim in gravida rhoncus metus interdum, neque elementum sociosqu eros ac hendrerit elit luctus sollicitudin volutpat. Cubilia cum pellentesque leo litora ipsum sociis ut, in tempor pharetra inceptos quisque eros lorem, nisi vivamus porta potenti facilisi magnis.'
+  },  
+  {
+    id: 12,
+    user: 'Richard Roe',
+    postId: 8,
+    createdDt: '01-Feb-2022',
+    comment: 'Condimentum dapibus odio laoreet tempor euismod cum ad lobortis parturient turpis, habitant sollicitudin curabitur elementum enim congue accumsan a nunc, erat cursus metus ullamcorper nisi interdum tincidunt morbi lacinia. Etiam ut conubia elit tincidunt consequat vivamus torquent ac, suspendisse massa nec taciti class aptent commodo, porta parturient dui suscipit metus nisi ipsum. Pulvinar orci nisi sociosqu ac pharetra scelerisque semper enim, vel pretium consectetur in commodo mollis dui fringilla, eros sed egestas leo ut morbi congue.'
+  },  
+];
+
 const posts = [
   {
     id: 1,
@@ -100,4 +187,5 @@ const posts = [
 // Using CommonJS style export so we can consume via Node (without using Babel-node)
 module.exports = {
   posts,
+  comments
 };

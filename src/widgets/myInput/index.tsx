@@ -19,7 +19,7 @@ interface InputProps {
 const MyInput: FunctionComponent<InputProps> = ({ name = undefined, type, label = undefined, state = undefined, disabled = false, rows = 1, onInputHook = undefined }) => {
     const [obj, setObj] = state ? state : [undefined, undefined];
   
-    const onInput = (e) => {
+    const onInput = (e: any ) => {
         const val = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
         if (setObj) {
             setObj({ ...obj, [e.target.name]: val });
