@@ -6,13 +6,14 @@ import Posts from '../routes/PostsRoute';
 import Post from '../routes/PostRoute';
 import CounterRoute from '../routes/CounterRoute';
 import Header from './HeaderComponent';
+import FooterComponent from './FooterComponent';
 import { ToastContainer } from '../widgets/ToastWidget';
 
 const App: FC = () => {
     return (
-        <div id="app">
+        <div id="app" className={style.app}>
             <Header />
-            <div className={style.container}>
+            <div className={style.main}>
                 <Routes>
                     <Route path="posts" element={<Posts />} />
                     <Route path="post/:id" element={<PostRoute />} />
@@ -22,6 +23,7 @@ const App: FC = () => {
                 </Routes>
                 <ToastContainer />                
             </div>
+            <FooterComponent />
         </div >
     );
 };
