@@ -32,6 +32,8 @@ Web UI Reference Application using TypeScript and Webpack.
   - [Debugging (VSCode)](#debugging-vscode)
   - [Fake API](#fake-api)
   - [Screenshots](#screenshots)
+    - [Viewing all posts:](#viewing-all-posts)
+    - [View / edit individual post](#view--edit-individual-post)
   - [Links](#links)
 
 Modern web development is complicated. There are a million ways to skin a cat, and the average developer has to worry about many design decisions before they evey start to code. This project is an attempt to capture all my personal design decisions into a single place, so I can easily spin up new web projects when needed.
@@ -519,7 +521,10 @@ Other useful links:
 
 ## Screenshots
 
+### Viewing all posts:
 ![view posts](https://github.com/davidbarone/webapp/blob/main/images/webapp-1.png?raw=true)
+
+### View / edit individual post
 ![edit post](https://github.com/davidbarone/webapp/blob/main/images/webapp-2.png?raw=true)
 
 ## Links
