@@ -31,6 +31,7 @@ Web UI Reference Application using TypeScript and Webpack.
   - [Context](#context)
   - [Debugging (VSCode)](#debugging-vscode)
   - [Fake API](#fake-api)
+  - [Screenshots](#screenshots)
   - [Links](#links)
 
 Modern web development is complicated. There are a million ways to skin a cat, and the average developer has to worry about many design decisions before they evey start to code. This project is an attempt to capture all my personal design decisions into a single place, so I can easily spin up new web projects when needed.
@@ -515,7 +516,11 @@ Other useful links:
 - Lorem Ipsum generator: https://loremipsumgenerator.org/
 - Free online fake API server: https://my-json-server.typicode.com/
 - Json-server source (GitHub), including instructions: https://github.com/typicode/json-server
-- 
+
+## Screenshots
+
+![view posts](https://github.com/davidbarone/webapp/blob/main/images/webapp-1.png?raw=true)
+![edit post](https://github.com/davidbarone/webapp/blob/main/images/webapp-2.png?raw=true)
 
 ## Links
 - https://dev.to/ruppysuppy/create-react-app-from-scratch-like-a-pro-de0#:~:text=%20Create%20React%20App%20from%20Scratch%20like%20a,use%20npm%20run%20build%20or%20npm...%20More%20
